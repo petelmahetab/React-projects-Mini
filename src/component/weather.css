@@ -1,6 +1,6 @@
-body{
+/* body{
     background-image: url("BgCOlor.jpeg");
-}
+} */
 .search-bar {
     margin: 20px;
     cursor: pointer;
@@ -42,7 +42,8 @@ body{
   }
   
   .error {
-    color: rgb(172, 165, 165);
+    color: rgb(7, 92, 79);
+    font-weight: bolder;
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
