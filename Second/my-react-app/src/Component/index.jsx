@@ -5,6 +5,8 @@ function Index({ url }) {
     const [Images, setImages] = useState([]);
     const [Error, setError] = useState(null);
     const [loading, setloading] = useState(false);
+    const [handlemove, setHandlemove] = useState(0);
+
 
     async function fetchUrl() {
         setloading(true);
@@ -27,41 +29,49 @@ function Index({ url }) {
     }, [url]);
 
     useEffect(() => {
-        console.log("Images updated:", Images); // Debug Images state
+        console.log("Images updated:", Images);
     }, [Images]);
 
     if (loading) {
-        return <div
-        style={{ textAlign:'center'}}
-    >Loading Data ..! Please Wait.</div>;
+        return <div style={{ textAlign:'center'}}>Loading Data ..! Please Wait.</div>;
     }
 
     if (Error) {
         return <div>Error Occurred: {Error}</div>;
     }
+console.log(Images)
 
-    return (
+// handle left icon
+function handleLeft(){
+   setHandlemove((handlemove)=>
+   handlemove === 0 ? Images.length-1 : handlemove-1 )
+}
+//handle right icon
+function handleRight(){
+    setHandlemove((handlemove)=>
+    handlemove === Images.length-1 ? 0 : handlemove+1 )
+ } 
+return (
         <div className="container">
             {/* Arrow left */}
             
-            <BsArrowLeftCircleFill className='left'/>
+            <BsArrowLeftCircleFill className='left' onClick={handleLeft}/>
             {Images.length > 0 ? (
-                Images.map((image) => (
-                    <div key={image.id}>
+               
+                    <div key={Images[handlemove].id}>
                         <img
-                            src={image.download_url}
-                            alt={`Image by ${image.author}`}
+                            src={Images[handlemove].download_url}
+                            alt={`Image by ${Images[handlemove].author}`}
                             style={{ maxWidth: '100%', height: 'auto' }}
                             className='current-image'
                         />
-                        <p>{`Author: ${image.author}`}</p>
+                        <p>{`Author: ${Images[handlemove].author}`}</p>
                     </div>
-                ))
                 
             ) : (
                 <p>No images available.</p>
             )}
-            <BsArrowRightCircleFill className='right'/>
+            <BsArrowRightCircleFill className='right' onClick={handleRight}/>
         </div>
     );
 }
