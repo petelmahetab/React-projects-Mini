@@ -6,7 +6,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-
   // Fetch the Products through API
   const getProduct = async () => {
     const api = await fetch('https://dummyjson.com/products');
@@ -21,7 +20,7 @@ function App() {
     getProduct();
   }, []);
 
-  // Calculate the products for the current page
+  // Calculate the products for the current page.
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
