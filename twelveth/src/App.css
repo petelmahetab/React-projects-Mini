@@ -1,0 +1,36 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(142, 132, 132);
+  position: relative;
+  /* overflow: hidden; */
+
+/* App {
+  width: 100vw;
+  height: 100vh;
+} */
+/* .parent {
+  position: absolute;
+  background: conic-gradient(blue, 45deg, white, 180deg);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 30%;
+} */
+.child {
+  background-color: rgb(255, 255, 255);
+  width: 460px;
+  height: 470px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
